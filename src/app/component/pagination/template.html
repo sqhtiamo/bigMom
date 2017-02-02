@@ -1,0 +1,36 @@
+<div class="xmall-pagination clearfix" ng-if="props.totalItem !== 0">
+    <div class="fl">每页显示：
+        <div class="page-size">
+            <div class="page-size-item" ng-repeat="(key, pageNum) in props.pageNums track by $index">
+                <input type="radio" id="_pageNum-{{key}}"  name="_pageNum" ng-model="props.currentPageNum" ng-value="pageNum"/>
+                <label for="_pageNum-{{key}}">{{pageNum}}</label>
+            </div>
+        </div>
+        <span class="page-size-unit">条</span>
+    </div>
+
+    <div class="fr">
+        <div class="page-num">
+            <div class="page-num-item">
+                <label >总计：{{props.totalItem}}</label>
+            </div><div class="page-num-item">
+                <label >当前页/总页数：{{props.currentPage}}/{{props.totalItem / props.currentPageNum | paginationRound }}</label>
+            </div><div class="page-num-item ng-class: (props.currentPage == 1) ? 'current': 'uncurrent' ">
+                <label ng-click="goFirstPage()">首页</label>
+            </div><div class="page-num-item ng-class: (props.currentPage == 1) ? 'unclickable': 'clickable'">
+                <label ng-click="goPrevPage()">上一页</label>
+            </div><div class="page-num-item">
+                <label >跳转到：
+                    <input input="text" class="short-input" ng-change="changeCurrentPage()" ng-model="props.inputPage"/>
+                    <button class="btn btn-tiny btn-primary" ng-click="goPage()">GO</button>
+                </label>
+            </div><div class="page-num-item ng-class: (props.currentPage ==  (props.totalItem / props.currentPageNum | paginationRound )) ? 'unclickable': 'clickable' ">
+                <label ng-click="goNextPage()" >下一页</label>
+            </div><div class="page-num-item ng-class: (props.currentPage == (props.totalItem / props.currentPageNum | paginationRound )) ? 'current': 'uncurrent'">
+                <label ng-click="goLastPage()">尾页</label>
+            </div>
+
+        </div>
+    </div>
+    <xmall-tip props="errTip" class="xmall-tip"></xmall-tip>
+</div>

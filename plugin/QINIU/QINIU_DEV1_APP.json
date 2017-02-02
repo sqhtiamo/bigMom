@@ -1,0 +1,5 @@
+{
+    "src":          "./local/app",
+    "dest":         "",
+    "debug_level":  2
+}

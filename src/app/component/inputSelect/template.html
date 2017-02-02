@@ -1,0 +1,7 @@
+<div class="long-input {{class}} input-select">
+    <input type="text" class="form-control" ng-focus="focus(); show = true; blur = false; " ng-change="change();" ng-model="props.text" value="props.value" style="{{props.inputStyle}}" ng-disabled="props.disable">
+
+    <div class="drop-down {{props.selectClass}}" style="{{props.selectStyle}}" ng-if="show">
+        <div ng-repeat="data in props.options track by $index" ng-if="!data.hide" class="drop-down-item" value="data.value" ng-click="choose(data.text, data.value);">{{data.text}}</div>
+    </div>
+</div>

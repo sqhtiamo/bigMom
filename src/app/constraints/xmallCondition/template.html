@@ -1,0 +1,57 @@
+titleWidth: '110px',<div class="page-content-condition">
+
+    <div ng-repeat="condition in props">
+        <div class="ng-class: (condition.style == 'block') ? 'clearfix' : ''"></div>
+
+        <div class="page-condition-title ng-class: (condition.style == 'block') ? '' : 'inline-title'">{{condition.title}}<span class="red" ng-if="condition.isRequired">*</span></div>
+        <div class="ng-class: (condition.style == 'block') ? 'page-condition-block' : 'page-condition-inline'" ng-switch="condition.type">
+
+            <xmall-multi-choice ng-switch-when="multiChoice" props="condition.data"></xmall-multi-choice>
+
+            <div ng-switch-when="timeRange" class="inline-block" >
+                <div class="inline-block fl">
+                    <input date-time name="startDate" class="form-control time-input" ng-model="condition.startDate" view="date" min-view="date" format="YYYY-MM-DD" auto-close="true" readonly>
+                </div>
+                <label class="inline-block fl time-range-word">至</label>
+
+                <div class="inline-block fl">
+                    <input date-time name="endDate" class="form-control time-input" ng-model="condition.endDate" view="date" min-view="date" format="YYYY-MM-DD" auto-close="true" readonly>
+                </div>
+            </div>
+
+
+            <div ng-switch-when="select" class="inline-block" ng-if="condition.options.length > 0 || condition.alwaysShow">
+                <select class="form-control {{condition.inputStyle}}" ng-model="condition.value" ng-change="condition.callback();" ng-switch="condition.selectType">
+                    <option></option>
+                    <option ng-switch-when="exsitId" ng-repeat="option in condition.options" value="{{option.id}}">{{option.name}}</option>
+                    <option ng-switch-default ng-repeat="option in condition.options" value="{{option.name}}">{{option.name ? option.name + '-' : ''}}{{option.value}}</option>
+                </select>
+                {{condition.afterText}}
+            </div>
+
+            <div class="page-item condition-buttons" ng-switch-when="button">
+                <button  ng-repeat="button in condition.data" class="btn" ng-click="button.callback();">{{button.buttonText}}</button>
+            </div>
+
+            <div class="page-item" ng-switch-when="input" ng-if="!condition.hide">
+                <input id="{{condition.id}}" class="form-control ng-class: (condition.inputStyle) ? condition.inputStyle : 'medium-input' " type="text" placeholder="{{condition.placeholder}}" maxLength="{{condition.maxLength}}" ng-model="condition.value" >
+            </div>
+
+            <div class="condition-radio page-item" ng-switch-when="radio" ng-if="!condition.hide" >
+                <div class="condition-radio-item" ng-repeat="radio in condition.data">
+                    <input type="radio" id="{{radio.value}}-{{radio.id}}" value="{{radio.id}}" ng-model="condition.value" ng-checked="radio.checked" />
+                    <label for="{{radio.value}}-{{radio.id}}">{{radio.value}}</label>
+                </div>
+            </div>
+
+            <div class="page-item {{condition.dynamicClass}}" ng-switch-when="dynamic" style="{{condition.dynamicStyle}}">
+                <xmall-dynamic-component props="condition"></xmall-dynamic-component>
+            </div>
+        </div>
+
+        <div class="ng-class: (condition.style == 'block') ? 'clearfix' : ''"></div>
+    </div>
+
+
+
+</div>

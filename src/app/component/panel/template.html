@@ -1,0 +1,25 @@
+<div class="xmall-panel {{class}} {{props.class}}" ng-show="props.show">
+    <div class="xmall-panel-overlay">
+    </div>
+    <div class="xmall-panel-box" mouse-move style="width: {{props.width}}; height: {{props.height}}; {{props.style}}">
+        <span class="xmall-panel-close" ng-click="close();">x</span>
+        <div class="xmall-panel-header">
+            {{props.title}}
+        </div>
+        <div ng-switch="props.type">
+            <div class="xmall-panel-content {{props.contentClass}}" ng-switch-when="dynamic" style="{{props.contentStyle}}">
+                <xmall-dynamic-component props="props.richText"></xmall-dynamic-component>
+            </div>
+            <div class="xmall-panel-content" ng-switch-default style="{{props.contentStyle}}">
+                {{props.content}}
+            </div>
+        </div>
+        <div class="xmall-panel-footer {{props.footerClass}}">
+            <button class="btn btn-{{button.style}}"
+                ng-repeat="button in props.buttons"
+                ng-click="button.callback();" ng-if="props.buttons">
+                {{button.text}}
+            </button>
+        </div>
+    </div>
+</div>

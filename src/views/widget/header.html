@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{{=title}}}</title>
+
+{{{=style}}}
+
+<style>
+.page-xmall {
+    display:  none;
+}
+
+.page-loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+
+}
+
+.page-loading-animation {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+
+.page-loading-animation-spin {
+
+        background-color: rgba(0,0,0,0);
+        border: 5px solid rgba(0,183,229,0.9);
+        opacity: .9;
+        border-top: 5px solid rgba(0,0,0,0);
+        border-left: 5px solid rgba(0,0,0,0);
+        border-radius: 50px;
+        box-shadow: 0 0 35px #2187e7;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        animation: spin .5s infinite linear;
+    }
+
+}
+
+@keyframes bounce
+{
+    0%, 100% {
+        transform: scale(0.0);
+    }
+
+    50% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+</style>
+<body>
+<div ng-app="app" class="page-xmall {{{=pageClass}}}" id="page" ng-controller="{{{=controller}}}" >

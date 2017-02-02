@@ -1,0 +1,53 @@
+@import "../base/style";
+
+.xmall-tip {
+
+    display: none;
+    &-show {
+        display: block;
+        position: fixed;
+        top: 10px;
+        margin: 0 auto;
+        width: 600px;
+        background: #f4615c;
+        z-index: 2000;
+        text-align: center;
+        vertical-align: middle;
+        padding: 10px;
+        color: white;
+        opacity: 0.8;
+        font-size: 16px;
+        border-radius: 5px;
+        animation: disapper 3.2s;
+
+
+        &.success {
+            background: #2ec7ab;
+            animation: success-disapper 2.2s;
+
+        }
+    }
+
+}
+
+@keyframes success-disapper
+{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes disapper
+{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+

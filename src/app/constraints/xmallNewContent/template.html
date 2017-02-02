@@ -1,0 +1,23 @@
+<div class="page-content-head">
+    <label>查询结果</label>
+    <button ng-repeat="button in props.topButtons" class="ng-class: (button.type == 'primary') ? 'btn-primary btn' : 'btn-default btn' " ng-if="!button.hide" ng-click="button.callback();">{{button.text}}</button>
+</div>
+
+<div class="page-content-table-wrapper" ng-switch="props.type">
+
+
+
+    <xmall-complex-table ng-switch-when="complex" props="props.data"></xmall-complex-table>
+
+
+    <xmall-table ng-switch-default props="props.data" class="page-content-table" dragable="{{props.dragable}}"></xmall-table>
+
+    <xmall-pagination props="props.pagination"></xmall-pagination>
+
+    <div class="page-content-buttons">
+
+        <button ng-repeat="button in props.buttons" class="ng-class: (button.type == 'primary') ? 'btn-primary btn' : 'btn-default btn' " ng-if="!button.hide" ng-click="button.callback();">{{button.text}}</button>
+
+    </div>
+
+</div>

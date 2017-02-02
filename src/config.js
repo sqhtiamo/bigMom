@@ -1,0 +1,1 @@
+module.exports = {"qiniuUrl":"https://dn-dev-ubank-web-server.qbox.me/","cdnPath":"//localhost:9090/app/"}

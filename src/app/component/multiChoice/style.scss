@@ -1,0 +1,75 @@
+@import "../base/style";
+
+table.xmall-multi-choice {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    td {
+        border: 1px solid #ccc;
+        label {
+
+            width: 100%;
+            cursor: pointer;
+            background: white;
+            color: #333;
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+        input {
+            height: 0px;
+            width: 0px;
+            visibility: hidden;
+            display: none;
+
+            &:checked {
+                &~label {
+                    background: $blue;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.xmall-multi-choice {
+    .xmall-choice {
+        float: left;
+        margin: 0px 5px 5px -3px;
+        text-align: center;
+
+        label {
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 3px 0px;
+            width: 120px;
+            background: white;
+            color: #333;
+            border: 1px solid #CCC;
+            margin-bottom: 0px;
+            line-height: 28px;
+            &.twice-lines {
+                line-height: 14px;
+            }
+        }
+
+        input {
+            height: 0px;
+            width: 0px;
+            visibility: hidden;
+
+            &:checked {
+                &~label {
+                    background: $blue;
+                    color: white;
+
+                }
+            }
+
+            &[disabled]~label {
+                opacity: 0.7;
+                cursor: default;
+            }
+        }
+
+    }
+}

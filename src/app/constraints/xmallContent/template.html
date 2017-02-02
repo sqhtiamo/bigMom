@@ -1,0 +1,12 @@
+<div class="page-content-table-wrapper" ng-switch="props.type">
+
+
+    <xmall-table ng-switch-default props="props.data" class="page-content-table" dragable="{{props.dragable}}"></xmall-table>
+
+    <div class="page-content-buttons">
+
+        <button ng-repeat="button in props.buttons" class="ng-class: (button.type == 'primary') ? 'btn-primary btn' : 'btn-default btn' " ng-if="!button.hide" ng-click="button.callback();">{{button.text}}</button>
+
+    </div>
+
+</div>

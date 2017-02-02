@@ -1,0 +1,53 @@
+{
+    "code": "0000",
+    "message": "成功",
+    "data": {
+        "productList": [{
+            "productID": "qwert1",
+            "productName": "英勇黄铜",
+            "channel": "zuan",
+            "vipLevel": "III",
+            "duration": "365",
+            "price": "10",
+            "createTime": "2016-12-27",
+            "status": "2"
+        }, {
+            "productID": "qwert2",
+            "productName": "不屈白银",
+            "channel": "zuan",
+            "vipLevel": "II",
+            "duration": "365",
+            "price": "30",
+            "createTime": "2016-12-27",
+            "status": "2"
+        }, {
+            "productID": "qwert3",
+            "productName": "荣耀黄金",
+            "channel": "zuan",
+            "vipLevel": "II",
+            "duration": "365",
+            "price": "80",
+            "createTime": "2016-12-27",
+            "status": "2"
+        }, {
+            "productID": "qwert4",
+            "productName": "华贵铂金",
+            "channel": "zuan",
+            "vipLevel": "I",
+            "duration": "365",
+            "price": "330",
+            "createTime": "2016-12-27",
+            "status": "1"
+        }, {
+            "productID": "qwert5",
+            "productName": "璀璨钻石",
+            "channel": "zuan",
+            "vipLevel": "II",
+            "duration": "365",
+            "price": "880",
+            "createTime": "2016-12-27",
+            "status": "3"
+        }],
+        "total": 3
+    }
+}

@@ -1,0 +1,88 @@
+<div class="page-condition-head">
+    <label>{{props.name ? props.name : '查询条件'}}</label>
+    <xmall-dynamic-component ng-if="props.nameSuffix" props="props.nameSuffix"></xmall-dynamic-component>
+</div>
+
+<div class="page-condition-content clearfix">
+
+    <div ng-repeat="condition in props.conditions" ng-if="!condition.hideAll">
+        <div class="ng-class: (condition.style == 'block') ? 'clearfix' : ''"></div>
+
+        <div class="page-condition-title ng-class: (condition.style == 'block') ? '' : 'inline-title'" style="width: {{condition.titleWidth}}">{{condition.title}}<span class="red" ng-if="condition.isRequired">*</span></div>
+        <div class="ng-class: (condition.style == 'block') ? 'page-condition-block' : 'page-condition-inline'" ng-switch="condition.type">
+
+            <xmall-multi-choice ng-switch-when="multiChoice" props="condition"></xmall-multi-choice>
+
+            <xmall-multi-choice ng-switch-when="multiChoiceSimple" props="condition.data"></xmall-multi-choice>
+
+            <div ng-switch-when="timeRange" class="inline-block" >
+                <div class="inline-block fl">
+                    <input date-time name="startDate" class="form-control time-input" ng-model="condition.startDate" view="date" min-view="date" format="YYYY-MM-DD" auto-close="true" readonly />
+                </div>
+                <label class="inline-block fl time-range-word">至</label>
+
+                <div class="inline-block fl">
+                    <input date-time name="endDate" class="form-control time-input" ng-model="condition.endDate" view="date" min-view="date" format="YYYY-MM-DD" auto-close="true" readonly>
+                </div>
+            </div>
+
+            <div ng-switch-when="timeRangeMinuteView" class="inline-block" >
+                <div class="inline-block fl">
+                    <xmall-datepicker-minute props="condition.startDate"></xmall-datepicker-minute>
+                </div>
+                <label class="inline-block fl time-range-word"> -- </label>
+
+                <div class="inline-block fl">
+                    <xmall-datepicker-minute props="condition.endDate"></xmall-datepicker-minute>
+                </div>
+            </div>
+
+            <div ng-switch-when="select" class="inline-block" ng-if="condition.options.length > 0 || condition.alwaysShow">
+                <select class="form-control {{condition.inputStyle}}" ng-model="condition.value" ng-change="condition.callback();" ng-switch="condition.selectType">
+                    <option ng-switch-when="existId" ng-repeat="option in condition.options" value="{{option.id}}">{{option.name}}</option>
+                    <option ng-switch-default ng-repeat="option in condition.options" value="{{option.name}}">{{option.name ? option.name + '-' : ''}}{{option.value}}</option>
+                </select>
+                {{condition.afterText}}
+            </div>
+
+            <div class="page-item condition-buttons" ng-switch-when="button">
+                <button  ng-repeat="button in condition.data" class="btn" ng-click="button.callback();">{{button.buttonText}}</button>
+            </div>
+
+            <div class="page-item" ng-switch-when="input" ng-if="!condition.hide">
+                <input id="{{condition.id}}" class="form-control ng-class: (condition.inputStyle) ? condition.inputStyle : 'medium-input' " type="text" placeholder="{{condition.placeholder}}" maxLength="{{condition.maxLength}}" ng-model="condition.value" ng-change="condition.onChange(condition.value);">
+            </div>
+
+            <div class="page-item" ng-switch-when="text" ng-if="!condition.hide">
+                <span class="text" ng-class="(condition.textStyle) ? condition.textStyle : 'text'" style="{{ condition.styleText }}">{{condition.value}}</span>
+            </div>
+
+            <div class="condition-radio page-item" ng-switch-when="radio" ng-if="!condition.hide" >
+                <div class="condition-radio-item" ng-repeat="radio in condition.data">
+                    <input type="radio" id="{{radio.value}}-{{radio.id}}" value="{{radio.id}}" ng-model="condition.value" ng-checked="radio.checked" />
+                    <label for="{{radio.value}}-{{radio.id}}">{{radio.value}}</label>
+                </div>
+            </div>
+
+            <div class="page-item" ng-switch-when="inputSelect" ng-if="!condition.hide">
+                <xmall-input-select props="condition.data"></xmall-input-select>
+            </div>
+
+            <div class="page-item {{condition.dynamicClass}}" ng-switch-when="dynamic" style="{{condition.dynamicStyle}}">
+                <xmall-dynamic-component props="condition"></xmall-dynamic-component>
+            </div>
+
+        </div>
+
+        <div class="ng-class: (condition.style == 'block') ? 'clearfix' : ''"></div>
+    </div>
+
+</div>
+
+<div class="page-condition-buttons clearfix">
+    <div ng-repeat="button in props.buttons" class="page-item condition-button" ng-switch="button.type">
+        <xmall-single-uploader ng-switch-when="single-uploader" props="button"></xmall-single-uploader>
+
+        <button ng-switch-default class="btn {{button.class}}" ng-click="button.callback();" ng-hide="button.hide" ng-disabled="button.disabled">{{button.buttonText}}</button>
+    </div>
+</div>

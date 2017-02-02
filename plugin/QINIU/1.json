@@ -1,0 +1,5 @@
+{
+    "src":          "./local/app",
+    "dest":         "qiniu:access_key=0zNmqCngSHmJE8_M3MQyZsE6rKPfCQCsxxHJ5XBj&secret_key=aZefKPtUoy40CcdPuXmKggNa-U80YMzmdw1bR_L8&bucket=dev-sqyh&key_prefix=dev1/admin/boss/xmall/app/",
+    "debug_level":  2
+}

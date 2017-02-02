@@ -1,0 +1,100 @@
+@import "../../component/base/style";
+
+$asideWidth: 35%;
+
+
+.page-content-condition {
+
+    clear: left;
+    margin: 10px 0px;
+
+    .page-condition-title {
+        float: left;
+        font-weight: 400;
+        &:not(.inline-title) {
+            width: 80px;
+            margin: 10px 0px;
+        }
+        &.inline-title {
+            margin-right: 15px;
+        }
+        line-height: 34px;
+
+    }
+
+    .inline-block {
+        line-height: 34px;
+    }
+
+    .page-condition-block {
+        margin: 10px 0px 10px 80px;
+    }
+    .page-condition-inline {
+        float: left;
+        line-height: 34px;
+        margin-right: 15px;
+
+        .xmall-choice {
+
+            label {
+                line-height: 20px !important;
+            }
+        }
+
+    }
+
+    .time-range-word {
+        margin: 0px 6px 0px 4px;
+    }
+    &:after {
+        clear: left;
+    }
+
+    .long-input {
+        width: 200px;
+        display: inline;
+        margin-right: 3px;
+    }
+
+    .long-long-input {
+        width: 300px;
+        display: inline;
+        margin-right: 3px;
+    }
+
+
+    .condition-buttons {
+        button {
+            margin-right: 10px;
+        }
+    }
+    .condition-radio {
+
+        line-height: 34px;
+        .condition-radio-item {
+
+
+            margin-right: 30px;
+            display: inline-block;
+            font-weight: 500 !important;
+
+            input {
+                display: inline-block;
+            }
+
+            label {
+                width: 30px;
+            }
+        }
+    }
+
+    .red {
+        color: red;
+    }
+
+    .page-display-none {
+        display: none;
+    }
+}
+
+

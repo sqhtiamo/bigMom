@@ -1,0 +1,96 @@
+@import "../base/style";
+
+/*
+ * 之后需要写一个z-index计算器
+ *
+ */
+
+.xmall-panel {
+
+    &-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.5;
+        z-index: 100;
+        width: auto;
+        height: auto;
+        background-color: black;
+    }
+
+    &-box {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+
+        min-width: 400px;
+        width: 500px;
+        height: 300px;
+        // margin: 10px;
+
+        z-index: 101;
+        background-color: white;
+        border-radius: 3px;
+        box-shadow:1px 1px 3px #292929;
+        cursor: move;
+
+        .xmall-panel-header {
+            background: $blue;
+            height: 40px;
+            color: white;
+            line-height: 40px;
+            padding-left: 20px;
+        }
+
+        .xmall-panel-content {
+            padding: 20px;
+            min-height: 100px;
+            margin-bottom: 60px;
+        }
+
+        .xmall-panel-footer {
+            text-align: right;
+            position: absolute;
+            right: 5px;
+            bottom: 20px;
+
+            button {
+                min-width: 70px;
+                margin: 0px 20px 0px -5px;
+            }
+        }
+
+        .xmall-panel-close {
+            position: absolute;
+            top: 11px;
+            right: 11px;
+            width: 12px;
+            height: 12px;
+            // background: url('./image/close.png');
+
+
+            font-weight: 100;
+            line-height: 1;
+            color: #eee;
+            text-shadow: 0 1px 0 #eee;
+            font-size: 18px;
+            opacity: 1;
+            &:hover {
+                cursor: pointer;
+                color: #fff;
+                opacity: 0.8;
+                // font-weight: 400;
+
+                // font-weight: 400;
+                // background: url('./image/close-hover.png');
+            }
+        }
+    }
+
+}

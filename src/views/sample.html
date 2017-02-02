@@ -1,0 +1,60 @@
+<xmall-config>
+{
+    "data": {
+        "header": {
+            "src": "/widget/header.html",
+            "title": "sample样例",
+            "css": [
+                "/app/lib/bootstrap.min.css"
+            ],
+            "controller": "PresellController",
+            "pageClass": ""
+        },
+
+        "body": {
+            "src": "/widget/body.html"
+        },
+        "footer": {
+            "src": "/widget/footer.html",
+            "js": [
+                "/app/lib/moment.min.js",
+                "/app/lib/angular.min.js",
+                "/app/lib/jquery.min.js",
+                "/app/sample.js"
+            ]
+        }
+
+    }
+}
+</xmall-config>
+
+<div>
+
+</div>
+    <div class="page-content">
+
+
+        <xmall-ztree props="content"></xmall-ztree>
+
+    </div>
+
+
+    <div class="page-operate" ng-switch="stage">
+
+
+        <xmall-operation ng-switch-when="1" props="operationStage1"></xmall-operation>
+
+        <xmall-operation ng-switch-when="2" props="operationStage2"></xmall-operation>
+
+        <xmall-operation ng-switch-when="3" props="operationStage3"></xmall-operation>
+
+    </div>
+
+<!--
+    <button ng-click="changeList()">button</button>
+    <xmall-complex-table props='table'></xmall-complex-table> -->
+    <xmall-tip props="errTip" class="xmall-tip"></xmall-tip>
+
+    <xmall-panel props="cancelPanel"></xmall-panel>
+
+<img src="" alt="">

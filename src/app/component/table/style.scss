@@ -1,0 +1,153 @@
+@import "../base/style";
+
+$imageBorderColor: #AAA;
+
+table.xmall-table {
+	font-size: 12px;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+    border-bottom: 1px solid $blue;
+
+    tr {
+		line-height: 40px;
+		// border-top: 2px solid $blue;
+		// border-bottom: 2px solid $blue;
+        &[draggable=true] {
+		  cursor: pointer;
+        }
+
+		&:nth-child(even) td {
+			background: $gray;
+		}
+        &:nth-child(odd) td {
+            background: white;
+        }
+        th {
+            line-height: 50px;
+        }
+        td {
+            border: none;
+
+            a {
+                margin: 5px;
+            }
+
+            &.xmall-table-no-data {
+                height: 200px;
+                font-size: 30px;
+
+                .xmall-table-loading {
+                    margin: 0 auto;
+                    background-color: rgba(0,0,0,0);
+                    border: 2px solid rgba(0,183,229,0.9);
+                    opacity: .7;
+                    border-top: 2px solid rgba(0,0,0,0);
+                    border-left: 2px solid rgba(0,0,0,0);
+                    border-radius: 50%;
+                    box-shadow: 0 0 1px #2187e7;
+                    width: 20px;
+                    height: 20px;
+                    animation: spin .5s infinite linear;
+                }
+            }
+
+            .xmall-table-state {
+                span {
+                    margin: 5px;
+                }
+            }
+
+            .xmall-table-long {
+
+                position: relative;
+
+            }
+
+            .multi-lines {
+                max-height: 120px;
+                overflow: auto;
+                &::-webkit-scrollbar {
+                    height: 12px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+                    // border-radius: 10px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: $blue;
+                    // border-radius: 10px;
+                    outline: 1px solid slategrey;
+                }
+            }
+
+            .image {
+
+                position: relative;
+
+                &-origin {
+                    margin: 10px 0px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .left-tip {
+                    display: none;
+                    position: absolute;
+                    top: -5px;
+                    left: 51px;
+                    border-left: transparent;
+                    border-top: transparent;
+                    border-bottom: transparent;
+                    border: 10px solid #CCC;
+                    border-top: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                }
+                .left-inner-tip {
+                    display: none;
+                    position: absolute;
+                    top: -3px;
+                    left: 55px;
+                    border-left: transparent;
+                    border-top: transparent;
+                    border-bottom: transparent;
+                    border: 8px solid white;
+                    border-top: 8px solid transparent;
+                    border-left: 8px solid transparent;
+                    border-bottom: 8px solid transparent;
+                }
+                &-tip {
+                    display: none;
+                    position: absolute;
+                    top: -150px;
+                    left: 70px;
+                    padding: 10px;
+                    border: 1px solid #CCC;
+                    border-radius: 3px;
+                    background: white;
+                }
+
+                &-origin:hover~.image-tip,
+                &-origin:hover~.left-tip,
+                &-origin:hover~.left-inner-tip{
+                    display: block;
+                }
+
+            }
+        }
+	}
+	thead tr {
+		background: $blue;;
+		th {
+			text-align: center;
+			color: white;
+		}
+	}
+
+}
+

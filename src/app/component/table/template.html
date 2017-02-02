@@ -1,0 +1,69 @@
+<table class="xmall-table {{class}}">
+    <thead>
+        <tr draggable="false" unselectable="on"  style="-moz-user-select:none;-webkit-user-select:none;" onselectstart="return false;">
+            <th ng-repeat="th in props.header" ng-switch="th.type" >
+                <span ng-switch-when="checkbox">
+                    <input type="checkbox" ng-model="props.checkAll" ng-click="check(-1);">
+                </span>
+                <span ng-switch-default>{{th}}</span>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody unselectable="on">
+        <tr ng-show="props.body.length" ng-repeat="tr in props.body" draggable="{{dragable}}" dropzone="false" id="tr-{{tr[0].id || tr[0]}}" ng-if="!props.loading" >
+             <td ng-repeat="td in tr track by $index" ng-hide={{td.hide}} ng-switch="td.type">
+
+                <span ng-switch-when="image" class="image">
+                    <img ng-src="{{td.src}}" height="60" width="60" class="image-origin" />
+
+                    <img ng-src="{{td.src}}" height="300" width="300" class="image-tip" ng-if="td.src" />
+                    <div class="left-tip" ng-if="td.src"></div>
+                    <div class="left-inner-tip" ng-if="td.src"></div>
+
+                </span>
+
+                <span ng-switch-when="state" class="xmall-table-state">
+                    <span>{{td.text}}</span>
+                    <button class="btn btn-primary btn-tiny" ng-if="td.buttonText" ng-click="td.func(tr[0].id || tr[0])">{{td.buttonText}}</button>
+                </span>
+
+                <span ng-switch-when="long" class="xmall-table-long">
+                    <span ng-if="td.text.length > td.maxLength" title="{{td.text}}">{{td.text.slice(0, td.maxLength) + '...' }}</span>
+                    <span ng-if="td.text.length <= td.maxLength" >{{td.text}}</span>
+                </span>
+
+                <span ng-switch-when="op" class="xmall-table-op">
+                    <span ng-repeat="op in td.ops" ng-hide={{op.hide}}>
+                        <a ng-if="op.type === 'text'" href="javascript:;" ng-click="op.func(tr[0].id || tr[0])">{{op.text}}</a>
+                        <img ng-if="op.type === 'img'" ng-src="{{op.src}}" ng-click="op.func(tr[0].id || tr[0])" />
+                    </span>
+                </span>
+
+                <span ng-switch-when="priceInput">
+                    <input class="form-control medium-input" type="text" ng-model="td.model" name="" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46" onkeyup="value=value.replace(/[^0-9.]/g,'');" value="{{td.text}}" ng-disabled="td.disabled" >
+                </span>
+
+                <span ng-switch-when="text">{{td.text}}</span>
+
+                <div ng-switch-when="multiLines" class="multi-lines">
+                    <div ng-repeat="line in td.text" class="line">{{line}}</div>
+                </div>
+
+                <span ng-switch-default ng-if="td.toString().length > 25" title="{{td}}">{{td | short}}</span>
+
+
+                <span ng-switch-default ng-if="::td.toString().length <= 25">{{::td}}</span>
+            </td>
+        </tr>
+
+        <tr ng-hide="props.body.length" ng-if="!props.loading" >
+            <td colspan="{{props.header.length}}" class="xmall-table-no-data {{props.emptyClass}}" >{{props.emptyWords}}</td>
+        </tr>
+
+        <tr ng-if="props.loading">
+            <td colspan="{{props.header.length}}" class="xmall-table-no-data"><div class="xmall-table-loading"></div></td>
+        </tr>
+
+	</tbody>
+</table>

@@ -1,0 +1,51 @@
+
+.light-page-loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+
+}
+
+.light-text {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    font-size: 24px;
+    text-align: center;
+    width: 800px;
+    height: 30px;
+    margin: auto;
+    color: white;
+}
+.light-page-loading-animation {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+}
+
+.light-page-loading-animation-spin {
+
+    background-color: rgba(0,0,0,0);
+    border: 3px solid rgba(255,255,255,1);
+    opacity: .9;
+    border-top: 3px solid rgba(0,0,0,0);
+    border-left: 3px solid rgba(0,0,0,0);
+    border-radius: 30px;
+    // box-shadow: 0 0 35px #2187e7;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    animation: spin .5s infinite linear;
+}

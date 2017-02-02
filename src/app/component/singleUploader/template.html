@@ -1,0 +1,13 @@
+<div class="xmall-single-uploader">
+
+    <button class="btn btn-primary {{class}}" type="button">
+
+        <span ng-if="!props.loading" ng-disabled="props.disabled">{{props.buttonText || '上传文件'}}</span>
+        <div ng-if="props.loading" class="loading">&nbsp;</div>
+
+    </button>
+
+    <input id="file" type="file" name="file" ng-if="!props.loading"  ng-disabled="props.disabled" onchange="angular.element(this).scope().upload(this);" value="{{props.value}}"/>
+
+</div>
+

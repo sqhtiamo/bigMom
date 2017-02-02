@@ -1,0 +1,167 @@
+$gray: #F5F5F5;
+$blue: #00a5e0;
+$blueHover: #00b4f5;
+$blueActive: #0092c7;
+
+body{
+    font-family: "微软雅黑";
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.inline {
+    display: inline;
+}
+.inline-block {
+    display: inline-block;
+}
+.width15 {
+    width: 15%;
+}
+
+.width25 {
+    width: 25%;
+}
+.width30 {
+    width: 30%;
+}
+.width33 {
+    width: 33%;
+}
+
+.width40 {
+    width: 40%;
+}
+.width60 {
+    width: 60%;
+}
+
+.width70 {
+    width: 70%;
+}
+.width80 {
+    width: 80%;
+}
+.width90 {
+    width: 90%;
+}
+.width100 {
+    width: 100%;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1; /* IE < 8 */
+}
+
+.btn,
+.btn.btn-default {
+    min-width: 100px;
+    background-color: white;
+    border-color: #ccc;
+
+    &:hover {
+        border-color: #ababaf;
+    }
+    &:active {
+        background-color: #f7f9fa;
+        border-color: #4c5161;
+    }
+}
+
+
+.btn.btn-primary {
+    background-color: $blue;
+    border-color: $blue;
+    min-width: 100px;
+
+    &:hover {
+        background-color: $blueHover;
+        border-color: $blueHover;
+    }
+
+    &:active {
+        background-color: $blueActive;
+        border-color: $blueActive;
+    }
+
+    &[disabled] {
+        opacity: 0.6;
+        cursor: default;
+    }
+
+}
+
+.btn.btn-sm {
+    min-width: 60px;
+}
+
+.btn.btn-tiny {
+    min-width: 40px;
+    padding: 0px;
+}
+
+.time-input {
+    width: 100px;
+    display: inline;
+    margin-right: 3px;
+    // padding: 6px 4px;
+    text-align: left;
+    padding-left: 10px;
+}
+.long-input {
+    width: 200px;
+    display: inline;
+    margin-right: 3px;
+}
+.medium-input {
+    width: 100px;
+    display: inline;
+    margin-right: 3px;
+}
+.short-input {
+    width: 42px;
+    display: inline;
+    margin-right: 3px;
+    padding: 6px 4px;
+    text-align: center;
+}
+
+.form-control[readonly] {
+    background: #fff;
+    cursor: pointer;
+}
+.form-control[readonly][disabled] {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+// ---------common---------- //
+
+
+
+.xmall-tab {
+
+    border-bottom: 2px solid $blue;
+    margin-bottom: 20px;
+
+    &-title {
+        // border-radius: 10px 10px 0px 0px;
+        color: white;
+        background: $blue;
+        padding: 6px 14px 3px;
+    }
+}
+

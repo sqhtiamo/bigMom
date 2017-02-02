@@ -1,0 +1,46 @@
+
+<xmall-config>
+{
+    "data": {
+        "header": {
+            "src": "/widget/header.html",
+            "title": "",
+            "css": [
+                "/app/lib/bootstrap.min.css"
+            ],
+            "controller": "{{controller}}",
+            "pageClass": "{{type}}"
+        },
+
+        "body": {
+            "src": "/widget/body.html"
+        },
+        "footer": {
+            "src": "/widget/footer.html",
+            "js": [
+                "/app/lib/moment.min.js",
+                "/app/lib/angular.min.js",
+                "/app/{{js}}.js"
+            ]
+        }
+
+    }
+}
+</xmall-config>
+
+
+
+<div class="page-content">
+
+
+    <xmall-condition props="condition"></xmall-condition>
+
+    <div class="clearfix"></div>
+
+    <xmall-content props="table"></xmall-content>
+
+
+</div>
+
+<xmall-tip props="errTip" class="xmall-tip"></xmall-tip>
+

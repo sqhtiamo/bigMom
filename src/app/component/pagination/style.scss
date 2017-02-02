@@ -1,0 +1,135 @@
+$blue: #00a5e0;
+$blueHover: #00b4f5;
+
+.xmall-pagination {
+    margin: 20px 0px 60px;
+    line-height: 30px;
+
+
+    .page-size {
+        display: inline-block;
+
+        &-item {
+            display: inline-block;
+            // border: 1px solid #DDD;
+            width: 30px;
+            // padding: 10px;
+            // cursor: pointer;
+
+             &:not(:last-child) label {
+                border-right: none;
+            }
+
+
+            label {
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+                background: white;
+                color: #333;
+                border: 1px solid #CCC;
+                text-align: center;
+                margin-bottom: 0px;
+                font-weight: 400;
+
+            }
+
+            input {
+                height: 0px;
+                width: 0px;
+                visibility: hidden;
+                display: block;
+                margin-top: 0px;
+
+                &:checked {
+                    &~label {
+                        background: $blue;
+                        color: white;
+
+                    }
+                }
+
+                // &[disabled]~label {
+                //     opacity: 0.7;
+                //     // cursor: default;
+                // }
+            }
+        }
+    }
+
+    .page-size-unit {
+        margin-left: 3px;
+    }
+
+    .page-num {
+        display: inline-block;
+
+        &-item {
+            display: inline-block;
+
+            &.current label {
+                background: $blue;
+                color: white;
+                cursor: default;
+            }
+            &.uncurrent label:hover {
+                background: $blue;
+                color: white;
+                opacity: 0.9;
+                cursor: pointer;
+            }
+
+            &.clickable label:hover {
+                background: $blue;
+                color: white;
+                opacity: 0.9;
+                cursor: pointer;
+            }
+
+            &.unclickable label {
+                background-color: #CCC;
+                opacity: 0.7;
+                cursor: default;
+            }
+
+             &:not(:last-child) label {
+                border-right: none;
+            }
+
+            label {
+                padding: 0px 10px;
+                height: 30px;
+                cursor: pointer;
+                background: white;
+                color: #333;
+                border: 1px solid #CCC;
+                text-align: center;
+                margin-bottom: 0px;
+                font-weight: 400;
+
+                .short-input {
+                    height: 22px;
+                    padding: 0px;
+                    line-height: 22px;
+
+                }
+            }
+
+            input[type=radio]{
+                height: 0px;
+                width: 0px;
+                visibility: hidden;
+                display: block;
+                margin-top: 0px;
+
+                &:checked {
+                    &~label {
+                        background: $blue;
+                        color: white;
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+<div class="page-operation" ng-if="props.show">
+    <div class="page-operate-tab xmall-tab" ng-if="props.title">
+        <span class="xmall-tab-title">{{props.title}}</span>
+    </div>
+
+    <div class="page-operate-head" ng-if="props.head">
+        <label>{{props.head.title}}</label>
+        <xmall-dynamic-component ng-if="props.head.suffix" props="props.head.suffix"></xmall-dynamic-component>
+    </div>
+
+    <div class="page-operate-item form-group clearfix" ng-repeat="operate in props.data" ng-switch="operate.type" ng-if="!operate.hideAll">
+        <label class="page-item-label" ng-if="!operate.hide">{{operate.title}}<span class="red" ng-if="operate.require">*</span></label>
+
+        <div class="page-item" ng-switch-when="kindeditor">
+            <xmall-kindeditor props="operate.data"></xmall-kindeditor>
+        </div>
+
+
+        <div class="page-item" ng-switch-when="input" ng-if="!operate.hide">
+            <input id="{{operate.id}}" class="form-control ng-class: (operate.inputStyle) ? operate.inputStyle : 'medium-input' " type="text" maxLength="{{operate.maxLength}}" ng-model="operate.value" value="{{operate.value}}" placeholder="{{operate.placeholder}}" ng-readonly="operate.isReadOnly" ng-disabled="operate.disabled">
+
+        </div>
+
+        <div ng-switch-when="timeRangeMinuteView" class="page-item timeRangeMinuteView" ng-if="!operate.hide">
+            <div class="inline-block fl">
+                <xmall-datepicker-minute props="operate.startDate"></xmall-datepicker-minute>
+            </div>
+            <label class="inline-block fl time-range-word">&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;</label>
+
+            <div class="inline-block fl">
+                <xmall-datepicker-minute props="operate.endDate"></xmall-datepicker-minute>
+            </div>
+        </div>
+
+        <div ng-switch-when="select" class="page-item select" ng-if="!operate.hide">
+            <select class="form-control ng-class: (operate.inputStyle) ? operate.inputStyle : 'medium-input' " ng-model="operate.value" ng-change="operate.callback();" ng-switch="operate.selectType">
+                <option ng-switch-default ng-repeat="option in operate.options" value="{{option.name}}">{{option.value}}</option>
+            </select>
+            {{operation.afterText}}
+        </div>
+
+        <div class="page-item input-button" ng-switch-when="inputButton" ng-if="!operate.hide">
+            <input id="{{operate.id}}" class="form-control ng-class: (operate.inputStyle) ? operate.inputStyle : 'medium-input' " type="text" placeholder="{{operate.placeholder}}" ng-model="operate.value" ng-disabled="operate.disabled">
+            <button class="btn ng-class: (operate.buttonStyle == 'primary' || !operate.buttonStyle) ? 'btn-primary' : 'btn-default' " ng-click="operate.callback();" ng-if="!operate.buttonHide">{{operate.buttonText}}</button>
+        </div>
+
+        <div class="page-item multi-text {{operate.style}}" ng-switch-when="multiText" ng-if="!operate.hide">
+            <div ng-repeat="item in operate.data" class="{{item.style}} inline-block">
+                <label>{{item.text}}</label><span  ng-model="item.value">{{item.value}}</span>
+            </div>
+        </div>
+
+        <div class="page-item multi-text {{operate.style}}" ng-switch-when="text" ng-if="!operate.hide">
+            <div class="{{item.style}} inline-block">
+                <span ng-model="operate.value">{{operate.value}}</span>
+            </div>
+        </div>
+
+        <div class="page-item" ng-switch-when="timeInput" ng-if="!operate.hide">
+            <input  id="{{operate.id}}" date-time class="form-control time-input" ng-model="operate.value" date-from="operate.dateFrom" view="date" min-view="date" format="YYYY-MM-DD" auto-close="true" no-show-now="operate.noShowNow" readonly placeholder="{{operate.placeholder}}" >
+        </div>
+
+        <div class="page-item" ng-switch-when="multiChoice" ng-if="!operate.hide">
+            <div class="{{operate.beforeTextStyle}}">{{operate.beforeText}}</div>
+            <xmall-multi-choice props="operate.data" id="{{operate.id}}"></xmall-multi-choice>
+            <div>{{operate.afterText}}</div>
+        </div>
+
+        <div class="page-item" ng-switch-when="multiChoiceSimple" ng-if="!operate.hide">
+            <div class="{{operate.beforeTextStyle}}">{{operate.beforeText}}</div>
+            <xmall-multi-choice props="operate" id="{{operate.id}}"></xmall-multi-choice>
+            <div>{{operate.afterText}}</div>
+        </div>
+
+        <div class="operate-radio page-item" ng-switch-when="radio" ng-if="!operate.hide" >
+            <div class="operate-radio-item" ng-repeat="radio in operate.data">
+                <input type="radio" id="{{operate.name}}-{{radio.id}}" name="{{operate.name}}" ng-model="operate.value" value="{{radio.id}}" ng-checked="radio.checked">
+                <label for="{{operate.name}}-{{radio.id}}">{{radio.value}}</label>
+            </div>
+        </div>
+
+        <div class="page-item multi-text {{operate.style}}" ng-switch-when="image" ng-if="!operate.hide">
+            <div class="{{item.style}} inline-block">
+                <img ng-src="{{operate.value}}" ng-if="operate.value" style="{{operate.imgStyle}}"/>
+            </div>
+        </div>
+
+        <div class="page-item buttons" ng-switch-when="buttons">
+            <button ng-repeat="button in operate.buttons" class="ng-class: (button.type == 'primary') ? 'btn-primary btn' : 'btn-default btn' " ng-click="button.callback();" ng-if="!button.hide">{{button.text}}</button>
+        </div>
+        <div class="page-item" ng-switch-when="dynamic">
+            <xmall-dynamic-component props="operate"></xmall-dynamic-component>
+        </div>
+    </div>
+
+
+    <button ng-repeat="button in props.buttons" class="ng-class: (button.type == 'primary') ? 'btn-primary btn' : 'btn-default btn'  " ng-click="button.callback();" ng-if="!button.hide">{{button.text}}</button>
+
+</div>

@@ -1,0 +1,117 @@
+body {
+    // 内嵌boss的iframe防止顶部被copyright遮盖
+    padding-bottom: 50px;
+}
+
+
+
+// --------- layout ---------- //
+
+.page-xmall-type1 {
+
+    position: relative;
+    padding: 10px 10px;
+    min-width: 1080px;
+
+    .page-content {
+        margin-right: 33%;
+    }
+    .page-operation {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        width: 30%;
+        margin-bottom: 40px;
+    }
+}
+
+.page-xmall-type2 {
+
+    position: relative;
+    padding: 10px 10px;
+    min-width: 1080px;
+
+    .page-content {
+        margin-right: 10%;
+    }
+    .page-operation {
+        width: 80%;
+        min-width: 378px;
+        margin: 60px 0px;
+    }
+}
+
+.page-xmall-type3 {
+
+    position: relative;
+    padding: 10px 10px;
+    min-width: 1080px;
+
+    .page-content {
+        margin-right: 60%;
+    }
+    .page-operation {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        width: 56%;
+        margin: 0px 0px;
+    }
+}
+
+.page-xmall-type4 {
+
+    position: relative;
+    padding: 10px 10px;
+    min-width: 1020px;
+
+    .page-content {
+        margin-right: 5%;
+    }
+    .page-operation {
+        .form-group {
+            .page-item-label {
+                width: 10%;
+            }
+        }
+        .page-item {
+            width: 85%;
+        }
+        width: 80%;
+        min-width: 378px;
+        margin: 10px 0px;
+    }
+}
+.form-control {
+    &.time-input {
+        padding-left: 10px;
+        padding-right: 0px;
+    }
+    display: inline-block;
+    height: 34px;
+    padding: 6px 8px 4px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
+
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;} /* IE < 8 */

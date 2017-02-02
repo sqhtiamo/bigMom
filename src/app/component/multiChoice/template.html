@@ -1,0 +1,24 @@
+<div ng-switch="type">
+    <div ng-switch-when="table">
+        <table class="xmall-multi-choice {{class}}">
+            <tbody>
+                <tr ng-repeat="tr in props.data" id="tr-{{tr[0]}}">
+                    <td ng-repeat="td in tr">
+                        <input type="checkbox" id="{{props.id}}-{{td.id}}" ng-model="td.checked" ng-init="checked=td.checked" />
+                        <label for="{{props.id}}-{{td.id}}">{{td.text}}</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-switch-default class="xmall-multi-choice {{class}}" ng-switch="props.inputType">
+        <div ng-repeat="i in props.data" class="xmall-choice" ng-switch-when="radio" ng-init="(i.checked && (props.value = i.id)) || ((!!props.value && +props.value !== 0) || (props.value = '-1'))">
+            <input type="radio" id="{{props.id}}-{{i.id}}" ng-model="props.value" ng-value="i.id" ng-disabled="i.disabled || props.disabled" name="radio-{{props.id}}"  />
+            <label ng-class="i.text.length > 8 ? 'twice-lines': ''" for="{{props.id}}-{{i.id}}" style='{{i.labelStyle || props.style}}'>{{i.text}}</label>
+        </div>
+        <div ng-repeat="i in props.data" class="xmall-choice" ng-switch-default>
+            <input type="checkbox" id="{{props.id}}-{{i.id}}" ng-model="i.checked" ng-init="checked=i.checked" ng-disabled="i.disabled || props.disabled"/>
+            <label ng-class="i.text.length > 8 ? 'twice-lines': ''" for="{{props.id}}-{{i.id}}" style='{{i.labelStyle || props.style}}'>{{i.text}}</label>
+        </div>
+    </div>
+</div>
